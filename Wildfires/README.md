@@ -1,88 +1,135 @@
-# Predicting California Wildfire Likelihood Utilizing Historical Weather and Fire Data
+# Predicting California Wildfire Likelihood Using Historical Weather and Fire Data
 
-### In Collaboration With
+## Overview
 
-- [Jeff Warchall](https://jeffwarchall.com/)
-- [Adam Swan](https://acswan9690.github.io/)
+This project explores whether we can **predict the likelihood of wildfires** in different locations across California using **historical wildfire records and weather data**.
 
----
-
-### Problem Statement
-
-To help the California Department of Forestry and Fire Protection allocate resources, can we predict the likelihood of fires utilizing historical weather and wildfire data?
+The main goal is to support better **resource planning and risk awareness** by providing an estimate of how likely a fire is under given conditions.
 
 ---
 
-### Executive Summary
+## Problem Statement
 
-Machine learning algorithms are some of the most powerful and interesting tools in tech right now and their applications are nearly limitless.  From predicting stock prices to determining how likely someone is to have cancer, we can use them to help us anticipate the future.  In this project, our team sought to predict whether there would be a wildfire in locations of California using historical fire and weather data between 2008 and 2020.  We know weather conditions are highly colinear in that every variable changes as a direct result of another.  Fire likelihood is also a direct result of weather conditions in that heat usually leads to dryness and dryness leads to more ignition sources resulting in an elevated fire risk.  Because of these correlations we wanted to see if we could predict whether I fire is likely to occur somewhere using this historical data.
-
-
-**1. Sample details:**
-- 10,988 total entries from every month between 2008 - 2020
-- Multi-indexing for instances of multiple fires at different locations occurring in the same month and year
-- 4,279 occurrences of fire within our combined dataset
-- 6,709 entries without record of a fire starting
-
-**2. Sources:**
-- https://gis.data.ca.gov/
-- https://data.ca.gov/
-- https://mygeodata.cloud/converter/
-- https://www.worldweatheronline.com/
-- https://towardsdatascience.com/
-
-
-**3. Data Details:**
-
-
-|Feature|Type|Description|
-|---|---|---|
-|**date**|*object*|The month and year of when the fire took place.|
-|**county**|*object*|The county the fire started in.|
-|**maxtempF**|*float*|The average maximum temperature of that month in °F.|
-|**mintempF**|*float*|The average min temperature of that month in °F.|
-|**avgtempF**|*float*|The monthly average, in °F, of the daily average temperature for that month .|
-|**totalSnow**|*float*|The total snow for that month.|
-|**humid**|*float*|The average humidity for that month.|
-|**wind**|*float*|The average wind speed for that month.|
-|**precip**|*float*|The total precipitation for that month.|
-|**q_avgtempF**|*float*|The quarterly average temperature in °F.|
-|**q_avghumid**|*float*|The quarterly average humidity.|
-|**q_sumprecip**|*float*|The quarterly total precipitation.|
-|**sunHour**|*float*|The average hours of sun for that month.|
-|**FIRE_NAME**|*object*|The name of the fire.|
-|**CAUSE**|*float*|The cause of the fire.|
-|**lat**|*float*|The latitude coordinate of the center of the county in which the fire was located.|
-|**long**|*float*|The longitude coordinate of the center of the county in which the fire was located.|
-|**GIS_ACRES**|*float*|The total number of acres burned.|
-
-
-
-**4. Target:**
-
-Four classification models were used: Logistic Regression, KNN Classifier, Random Forest Classifier, and Voting Classifier utilizing a KNN Classifier, Random Forest Classifier, and Ada Boost Classifier.
-
-
-**5. Model Performance:**
-
-A total of four models were fit using many different parameters.  Listed below are the two best metrics for each model, further metrics are used for evaluation in the modeling notebook.
-
-| Model Type  | Metric  | Score  |
-|---|---|---|
-| **Logistic Regression**   | *Accuracy*  | 76%  |
-| **Logistic Regression**  | *Precision*  | 67%  |
-| **Random Forest Classifier**  | *Accuracy*  | 88% |
-| **Random Forest Classifier** | *Precision*  | 84% |
-| **Voting Classifier** | *Accuracy* | 87% |
-| **Voting Classifier** | *Recall*   | 86% |
-
+Given historical data about **weather** and **wildfire activity** in California, can we build a machine learning model that predicts whether a wildfire will occur in a particular county and month?
 
 ---
 
-### Conclusion & Recommendations
+## Data Summary
 
-Our models were able to predict whether a fire would occur with a surprising level of accuracy.  Out best overall model achieved 88% accuracy while our second best was close behind with a great recall score of 86%.  Due to the danger of wild fires growing out of control and the threat of climate change looming, we recommend the use of our Random Forest model as it positively predicts more fires.  However, it also predicts more false positives meaning there's a higher chance for predicting fires that don't actually happen.  This is where you, the California Department of Forestry and Fire Protection, must prioritize what is most important to you and whether or not you have enough resources and man power to use the above model.
+The dataset covers records from **2008 to 2020** and includes:
 
-If resources are particularly thin the Voting Classifier may be best as it resulted in fewer false positives which would minimize wasted time and resources at the expense of possibly missing out on fires somewhere else.
+- **10,988 total entries** across all months between 2008–2020  
+- Multiple entries for months where more than one fire occurred in the same county  
+- **4,279 entries with a recorded fire**  
+- **6,709 entries without a fire**
+
+Each row in the dataset describes a single (county, month, year) combination along with associated weather and fire information.
+
+### Feature Descriptions
+
+| Feature        | Type   | Description                                                                 |
+|----------------|--------|-----------------------------------------------------------------------------|
+| `date`         | object | Month and year of the record                                               |
+| `county`       | object | County in which the record is located                                      |
+| `maxtempF`     | float  | Average maximum temperature (°F) for the month                             |
+| `mintempF`     | float  | Average minimum temperature (°F) for the month                             |
+| `avgtempF`     | float  | Average of daily average temperatures (°F) for the month                   |
+| `totalSnow`    | float  | Total snow for the month                                                   |
+| `humid`        | float  | Average humidity for the month                                             |
+| `wind`         | float  | Average wind speed for the month                                           |
+| `precip`       | float  | Total precipitation for the month                                          |
+| `q_avgtempF`   | float  | Quarterly average temperature (°F)                                         |
+| `q_avghumid`   | float  | Quarterly average humidity                                                 |
+| `q_sumprecip`  | float  | Quarterly total precipitation                                              |
+| `sunHour`      | float  | Average hours of sun per day in the month                                  |
+| `FIRE_NAME`    | object | Name of the fire (if any)                                                  |
+| `CAUSE`        | float  | Encoded cause of the fire                                                  |
+| `lat`          | float  | Latitude coordinate of the county center                                   |
+| `long`         | float  | Longitude coordinate of the county center                                  |
+| `GIS_ACRES`    | float  | Total number of acres burned (if a fire occurred)                          |
+
+### Target Variable
+
+The primary target is a **binary classification label** indicating whether a fire occurred for that (county, month, year) combination.
 
 ---
+
+## Modeling Approach
+
+We treat the problem as a **supervised classification task**:
+
+- **Inputs (features):** weather metrics, quarterly aggregates, and location information  
+- **Output (target):** fire occurred (yes/no)
+
+Several machine learning models are evaluated, including:
+
+- **Logistic Regression** – a linear model that outputs probabilities
+- **K-Nearest Neighbors (KNN) Classifier**
+- **Random Forest Classifier** – an ensemble of decision trees
+- **Voting Classifier** – combines predictions from multiple base models
+
+The models are trained and evaluated on the historical dataset to see how well they can distinguish between months with fires and months without fires.
+
+---
+
+## Model Performance (High-Level)
+
+A range of models and hyperparameters were tested. Two key metrics are highlighted for each main model:
+
+| Model Type              | Metric      | Score |
+|-------------------------|------------|-------|
+| Logistic Regression     | Accuracy   | 76%   |
+| Logistic Regression     | Precision  | 67%   |
+| Random Forest Classifier| Accuracy   | 88%   |
+| Random Forest Classifier| Precision  | 84%   |
+| Voting Classifier       | Accuracy   | 87%   |
+| Voting Classifier       | Recall     | 86%   |
+
+- **Accuracy** measures the overall fraction of correct predictions.  
+- **Precision** tells us, out of all predicted fires, how many were actual fires.  
+- **Recall** tells us, out of all actual fires, how many were correctly predicted as fires.
+
+The **Random Forest Classifier** achieved the highest accuracy and precision among the evaluated models, while the **Voting Classifier** provided a strong balance with high recall.
+
+---
+
+## Interpretation & Trade-Offs
+
+Because wildfires are high-impact events, we often care more about **catching as many fires as possible** (high recall), even if this means occasionally predicting fires that do not actually occur (lower precision).
+
+- A model with **higher recall** is useful when missing a fire is very costly.  
+- A model with **higher precision** limits false alarms but may miss some real fire events.
+
+The best choice of model depends on how stakeholders balance:
+
+- **Available resources** (personnel, equipment, budget)  
+- **Tolerance for false positives** vs **false negatives**  
+
+In many risk-management scenarios, a model that slightly over-predicts fires can still be valuable if it helps allocate resources to high-risk areas in advance.
+
+---
+
+## How to Use This Project
+
+1. **Explore the data** – understand distributions, correlations, and patterns in weather and fire history.  
+2. **Run the modeling notebooks** – train and evaluate the different classification models.  
+3. **Compare performance metrics** – decide which model best fits your desired trade-off between precision and recall.  
+4. **Extend the work** –
+   - Add new features (e.g., drought indices, vegetation type)  
+   - Try additional models or tuning strategies  
+   - Explore calibration of model probabilities for decision support
+
+---
+
+## Future Directions
+
+Potential next steps for enhancing this work include:
+
+- Incorporating **finer-grained spatial data** (e.g., higher-resolution coordinates or land cover types)  
+- Using **time-series models** to better capture temporal dependencies  
+- Exploring **explainable AI** techniques (e.g., SHAP values) to understand which features drive risk predictions  
+- Integrating the model into a **dashboard or alerting system** for operational use
+
+---
+
+This README provides a high-level description of the project, dataset, and modeling approach, without referencing any external collaborators or third-party work. For full details, please refer to the associated notebooks and code in this repository.
