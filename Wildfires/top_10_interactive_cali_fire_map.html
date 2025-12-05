@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_850b7473718a4ef2a4d7d835d07b63f0 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_850b7473718a4ef2a4d7d835d07b63f0" ></div>
+        
+</body>
+<script>    
+    
+            var map_850b7473718a4ef2a4d7d835d07b63f0 = L.map(
+                "map_850b7473718a4ef2a4d7d835d07b63f0",
+                {
+                    center: [37.5, -120.04],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d09a21f4803e416289313e186581a720 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_850b7473718a4ef2a4d7d835d07b63f0);
+        
+    
+            var circle_marker_44f850d2324042b6a70c65006a23fe58 = L.circleMarker(
+                [33.73000000000001, -116.0],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 24.9593715, "stroke": true, "weight": 3}
+            ).addTo(map_850b7473718a4ef2a4d7d835d07b63f0);
+        
+    
+        var popup_95e878b5d57e4ba5aa59af130f04c305 = L.popup({"maxWidth": 1000});
+
+        
+            var html_46004e2af793467893859542de04925f = $(`<div id="html_46004e2af793467893859542de04925f" style="width: 100.0%; height: 100.0%;"><B>Fire Name:</B> Gilman <br><B>Fire Cause:</B> Unknown <br><B>Acres Burned:</B> 99.84 <br><B>Date of Fire:</B> 2010-09</div>`)[0];
+            popup_95e878b5d57e4ba5aa59af130f04c305.setContent(html_46004e2af793467893859542de04925f);
+        
+
+        circle_marker_44f850d2324042b6a70c65006a23fe58.bindPopup(popup_95e878b5d57e4ba5aa59af130f04c305)
+        ;
+
+        
+    
+    
+            var circle_marker_f2fdc22470c945f2a12ae18c0f3e97de = L.circleMarker(
+                [40.76, -122.03999999999998],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 24.89340975, "stroke": true, "weight": 3}
+            ).addTo(map_850b7473718a4ef2a4d7d835d07b63f0);
+        
+    
+        var popup_9a1dfe2abd6040aeaac745e4f001a062 = L.popup({"maxWidth": 1000});
+
+        
+            var html_a4927079f88c449dbb8cd0183c535282 = $(`<div id="html_a4927079f88c449dbb8cd0183c535282" style="width: 100.0%; height: 100.0%;"><B>Fire Name:</B> R-3 Mud <br><B>Fire Cause:</B> Lightning <br><B>Acres Burned:</B> 99.57 <br><B>Date of Fire:</B> 2017-08</div>`)[0];
+            popup_9a1dfe2abd6040aeaac745e4f001a062.setContent(html_a4927079f88c449dbb8cd0183c535282);
+        
+
+        circle_marker_f2fdc22470c945f2a12ae18c0f3e97de.bindPopup(popup_9a1dfe2abd6040aeaac745e4f001a062)
+        ;
+
+        
+    
+    
+            var circle_marker_a385fed89e344c358f9e3305c868c1ef = L.circleMarker(
+                [34.539999999999985, -120.03999999999998],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 24.7707635, "stroke": true, "weight": 3}
+            ).addTo(map_850b7473718a4ef2a4d7d835d07b63f0);
+        
+    
+        var popup_716955c48697450dbc831a5b5a28f8f7 = L.popup({"maxWidth": 1000});
+
+        
+            var html_decfa31fe07d440896fd4782e27dc975 = $(`<div id="html_decfa31fe07d440896fd4782e27dc975" style="width: 100.0%; height: 100.0%;"><B>Fire Name:</B> Range <br><B>Fire Cause:</B> Miscellaneous <br><B>Acres Burned:</B> 99.08 <br><B>Date of Fire:</B> 2019-07</div>`)[0];
+            popup_716955c48697450dbc831a5b5a28f8f7.setContent(html_decfa31fe07d440896fd4782e27dc975);
+        
+
+        circle_marker_a385fed89e344c358f9e3305c868c1ef.bindPopup(popup_716955c48697450dbc831a5b5a28f8f7)
+        ;
+
+        
+    
+    
+            var circle_marker_66a75fbde1904f59870a6fd00974c9ff = L.circleMarker(
+                [33.73000000000001, -116.0],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 24.74524875, "stroke": true, "weight": 3}
+            ).addTo(map_850b7473718a4ef2a4d7d835d07b63f0);
+        
+    
+        var popup_dd38f352d8d24833a7b276506d5befaa = L.popup({"maxWidth": 1000});
+
+        
+            var html_0395916f86c24dcbafb9ea76fd449ff4 = $(`<div id="html_0395916f86c24dcbafb9ea76fd449ff4" style="width: 100.0%; height: 100.0%;"><B>Fire Name:</B> Cabazon <br><B>Fire Cause:</B> Unknown <br><B>Acres Burned:</B> 98.98 <br><B>Date of Fire:</B> 2011-08</div>`)[0];
+            popup_dd38f352d8d24833a7b276506d5befaa.setContent(html_0395916f86c24dcbafb9ea76fd449ff4);
+        
+
+        circle_marker_66a75fbde1904f59870a6fd00974c9ff.bindPopup(popup_dd38f352d8d24833a7b276506d5befaa)
+        ;
+
+        
+    
+    
+            var circle_marker_d4796098e0ec478db591125a4e921236 = L.circleMarker(
+                [38.51, -122.32999999999996],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 24.7056865, "stroke": true, "weight": 3}
+            ).addTo(map_850b7473718a4ef2a4d7d835d07b63f0);
+        
+    
+        var popup_477f48adf1e44f4c9abeb218b7e401cc = L.popup({"maxWidth": 1000});
+
+        
+            var html_b4a86aee62b04b0bae390a3da2c04882 = $(`<div id="html_b4a86aee62b04b0bae390a3da2c04882" style="width: 100.0%; height: 100.0%;"><B>Fire Name:</B> Highland <br><B>Fire Cause:</B> Unknown <br><B>Acres Burned:</B> 98.82 <br><B>Date of Fire:</B> 2013-09</div>`)[0];
+            popup_477f48adf1e44f4c9abeb218b7e401cc.setContent(html_b4a86aee62b04b0bae390a3da2c04882);
+        
+
+        circle_marker_d4796098e0ec478db591125a4e921236.bindPopup(popup_477f48adf1e44f4c9abeb218b7e401cc)
+        ;
+
+        
+    
+    
+            var circle_marker_a71859ca2883460a88e8d4d085f5ee09 = L.circleMarker(
+                [35.35, -118.73],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 24.53693775, "stroke": true, "weight": 3}
+            ).addTo(map_850b7473718a4ef2a4d7d835d07b63f0);
+        
+    
+        var popup_2948587bd15f4c0eb61c7af50f2a36b0 = L.popup({"maxWidth": 1000});
+
+        
+            var html_419bb362d0834183bf7975d5dfbd7f3e = $(`<div id="html_419bb362d0834183bf7975d5dfbd7f3e" style="width: 100.0%; height: 100.0%;"><B>Fire Name:</B> Bramlette <br><B>Fire Cause:</B> Lightning <br><B>Acres Burned:</B> 98.15 <br><B>Date of Fire:</B> 2010-03</div>`)[0];
+            popup_2948587bd15f4c0eb61c7af50f2a36b0.setContent(html_419bb362d0834183bf7975d5dfbd7f3e);
+        
+
+        circle_marker_a71859ca2883460a88e8d4d085f5ee09.bindPopup(popup_2948587bd15f4c0eb61c7af50f2a36b0)
+        ;
+
+        
+    
+    
+            var circle_marker_bca9aaab1c4f443eb0595f80a4573076 = L.circleMarker(
+                [33.73000000000001, -116.0],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 24.443859, "stroke": true, "weight": 3}
+            ).addTo(map_850b7473718a4ef2a4d7d835d07b63f0);
+        
+    
+        var popup_c07f362acd034ace94ffff0fd3a30045 = L.popup({"maxWidth": 1000});
+
+        
+            var html_031638681b6849c08693c07b41edd79e = $(`<div id="html_031638681b6849c08693c07b41edd79e" style="width: 100.0%; height: 100.0%;"><B>Fire Name:</B> Freeway <br><B>Fire Cause:</B> Unknown <br><B>Acres Burned:</B> 97.78 <br><B>Date of Fire:</B> 2012-07</div>`)[0];
+            popup_c07f362acd034ace94ffff0fd3a30045.setContent(html_031638681b6849c08693c07b41edd79e);
+        
+
+        circle_marker_bca9aaab1c4f443eb0595f80a4573076.bindPopup(popup_c07f362acd034ace94ffff0fd3a30045)
+        ;
+
+        
+    
+    
+            var circle_marker_05bd7e86f0864cd68b9cae849f4955d8 = L.circleMarker(
+                [39.09, -122.75],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 24.3880195, "stroke": true, "weight": 3}
+            ).addTo(map_850b7473718a4ef2a4d7d835d07b63f0);
+        
+    
+        var popup_47345b733f2344f985746ee206481c36 = L.popup({"maxWidth": 1000});
+
+        
+            var html_c7858777d3bf4bbcae9ad8e79b4f5903 = $(`<div id="html_c7858777d3bf4bbcae9ad8e79b4f5903" style="width: 100.0%; height: 100.0%;"><B>Fire Name:</B> Deer <br><B>Fire Cause:</B> Lightning <br><B>Acres Burned:</B> 97.55 <br><B>Date of Fire:</B> 2015-08</div>`)[0];
+            popup_47345b733f2344f985746ee206481c36.setContent(html_c7858777d3bf4bbcae9ad8e79b4f5903);
+        
+
+        circle_marker_05bd7e86f0864cd68b9cae849f4955d8.bindPopup(popup_47345b733f2344f985746ee206481c36)
+        ;
+
+        
+    
+    
+            var circle_marker_e048025b402b4a6581cbe7932c703688 = L.circleMarker(
+                [33.73000000000001, -116.0],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 24.386465, "stroke": true, "weight": 3}
+            ).addTo(map_850b7473718a4ef2a4d7d835d07b63f0);
+        
+    
+        var popup_04199b10ebb54c46ad9c5d9338efb2a6 = L.popup({"maxWidth": 1000});
+
+        
+            var html_50b6c249012d4b5493ed505a0afe6670 = $(`<div id="html_50b6c249012d4b5493ed505a0afe6670" style="width: 100.0%; height: 100.0%;"><B>Fire Name:</B> Cahuilla <br><B>Fire Cause:</B> Miscellaneous <br><B>Acres Burned:</B> 97.55 <br><B>Date of Fire:</B> 2011-07</div>`)[0];
+            popup_04199b10ebb54c46ad9c5d9338efb2a6.setContent(html_50b6c249012d4b5493ed505a0afe6670);
+        
+
+        circle_marker_e048025b402b4a6581cbe7932c703688.bindPopup(popup_04199b10ebb54c46ad9c5d9338efb2a6)
+        ;
+
+        
+    
+    
+            var circle_marker_009bb00936bb4d6a9b599b60c70acd1b = L.circleMarker(
+                [39.6, -122.40000000000006],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 24.35976025, "stroke": true, "weight": 3}
+            ).addTo(map_850b7473718a4ef2a4d7d835d07b63f0);
+        
+    
+        var popup_4c39fcf7579c4f84aebc2f8a256dc382 = L.popup({"maxWidth": 1000});
+
+        
+            var html_d6f4b347c9cf4d679f99841a992c5a54 = $(`<div id="html_d6f4b347c9cf4d679f99841a992c5a54" style="width: 100.0%; height: 100.0%;"><B>Fire Name:</B> 36 <br><B>Fire Cause:</B> Powerline <br><B>Acres Burned:</B> 97.44 <br><B>Date of Fire:</B> 2015-08</div>`)[0];
+            popup_4c39fcf7579c4f84aebc2f8a256dc382.setContent(html_d6f4b347c9cf4d679f99841a992c5a54);
+        
+
+        circle_marker_009bb00936bb4d6a9b599b60c70acd1b.bindPopup(popup_4c39fcf7579c4f84aebc2f8a256dc382)
+        ;
+
+        
+    
+</script>

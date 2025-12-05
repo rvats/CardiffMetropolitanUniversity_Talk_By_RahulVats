@@ -1,0 +1,69 @@
+├── .gitignore
+├── README.md
+├── LICENSE
+├── requirements.txt
+├── environment.yml           # optional, conda environment
+├── Makefile                  # tasks: setup, run-pipeline, train, test
+│
+├── data
+│   ├── raw                   # original unmodified downloads (do NOT edit)
+│   │   ├── raw_fires.csv                     # from 01-webscraping-FINAL.ipynb export
+│   │   ├── CA_Counties_Location.csv         # provided
+│   │   └── top_10_interactive_cali_fire_map.html  # (optional original output)
+│   │
+│   └── processed             # files produced by preprocessing pipeline
+│       ├── clean_daily_weather.csv
+│       ├── weather_data.csv
+│       ├── fire_data.csv
+│       └── combined.csv
+│
+├── notebooks
+│   ├── 01-data-acquisition.ipynb      # refactored from 01-webscraping-FINAL.ipynb
+│   ├── 02-preprocessing.ipynb         # refactored from 02-preprocessing-FINAL.ipynb
+│   ├── 03-resampling.ipynb            # from 03-resampling.ipynb
+│   ├── 05-model-classification.ipynb  # model training & evaluation
+│   └── exploratory.ipynb              # optional: EDA snapshots
+│
+├── src
+│   ├── data
+│   │   ├── fetch_fire_data.py         # functions to download/refresh raw_fires.csv
+│   │   ├── fetch_weather.py           # functions to download weather via API
+│   │   └── ingest.py                  # helpers for reading/writing data
+│   │
+│   ├── preprocessing
+│   │   ├── clean_fire.py              # cleaning/mapping UNIT_ID -> county
+│   │   ├── clean_weather.py           # parse WWO json -> monthly CSVs
+│   │   └── combine.py                 # merges weather + fire -> combined.csv
+│   │
+│   ├── models
+│   │   ├── train_classifiers.py       # wrappers to train RF, KNN, Logistic, Voting
+│   │   ├── train_nn.py                # tensorflow/keras training script
+│   │   ├── predict.py                 # prediction / inference helpers
+│   │   └── metrics.py                 # evaluation and plotting utilities
+│   │
+│   ├── viz
+│   │   ├── map_plot.py                # generate Folium / HTML maps
+│   │   └── plot_utils.py              # common plotting helpers
+│   │
+│   └── utils
+│       ├── io.py                      # standardized read/write helpers
+│       ├── logging_config.py          # logging setup
+│       └── config.py                  # paths, constants (use relative paths)
+│
+├── models_output
+│   ├── rf_model.joblib
+│   ├── vote_model.joblib
+│   └── nn_model.h5
+│
+├── reports
+│   ├── figures
+│   │   └── (png, svg, etc.)
+│   └── top_10_interactive_cali_fire_map.html   # move here (dashboard / deliverable)
+│
+├── tests
+│   ├── test_data_ingest.py
+│   ├── test_preprocessing.py
+│   └── test_models.py
+│
+└── docs
+    └── PROJECT_STRUCTURE.md       # this file (explanation + mapping + next steps)
